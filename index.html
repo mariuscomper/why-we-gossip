@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We Gossip — A Multi-Disciplinary Analysis</title>
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Why We Gossip: The Hidden Logic of Humanity's Most Universal Behavior">
+    <meta property="og:description" content="You spend 65% of your conversation time doing something you condemn in others. A deep multi-disciplinary analysis across evolutionary psychology, anthropology, economics, game theory, neuroscience, sociology, political science, and linguistics.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why We Gossip: The Hidden Logic of Humanity's Most Universal Behavior">
+    <meta name="twitter:description" content="You spend 65% of your conversation time doing something you condemn in others. A deep multi-disciplinary analysis.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #1a1e2e;
+            --accent: #2d5a4e;
+            --accent-light: #3d7a6a;
+            --accent-gold: #b8862e;
+            --accent-gold-light: #d4a037;
+            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(45, 90, 78, 0.3) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 60%, rgba(184, 134, 46, 0.15) 0%, transparent 60%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 700px;
+            padding: 2rem;
+        }
+
+        .label {
+            font-weight: 600;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-gold-light);
+            margin-bottom: 2.5rem;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+            max-width: 550px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .lang-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lang-btn:hover::before {
+            opacity: 1;
+        }
+
+        .lang-btn.en {
+            background: rgba(45, 90, 78, 0.3);
+            color: #fff;
+        }
+
+        .lang-btn.en::before {
+            background: rgba(45, 90, 78, 0.5);
+        }
+
+        .lang-btn.en:hover {
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(45, 90, 78, 0.3);
+        }
+
+        .lang-btn.ro {
+            background: rgba(184, 134, 46, 0.2);
+            color: #fff;
+        }
+
+        .lang-btn.ro::before {
+            background: rgba(184, 134, 46, 0.35);
+        }
+
+        .lang-btn.ro:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(184, 134, 46, 0.25);
+        }
+
+        .lang-flag {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .lang-name {
+            text-align: left;
+        }
+
+        .lang-name .primary {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .lang-name .secondary {
+            display: block;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            font-weight: 400;
+            margin-top: 0.15rem;
+        }
+
+        .meta {
+            margin-top: 4rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            line-height: 1.8;
+        }
+
+        .meta a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.2s;
+        }
+
+        .meta a:hover {
+            color: rgba(255,255,255,0.7);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .disciplines {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .disc-tag {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 0.95rem; }
+            .lang-buttons { flex-direction: column; align-items: center; }
+            .lang-btn { width: 260px; justify-content: center; }
+        }
+
+        /* Fade in animation */
+        .container > * {
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .container > *:nth-child(1) { animation-delay: 0.1s; }
+        .container > *:nth-child(2) { animation-delay: 0.2s; }
+        .container > *:nth-child(3) { animation-delay: 0.35s; }
+        .container > *:nth-child(4) { animation-delay: 0.5s; }
+        .container > *:nth-child(5) { animation-delay: 0.65s; }
+        .container > *:nth-child(6) { animation-delay: 0.8s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">A Multi-Disciplinary Analysis</div>
+        <h1>Why We Gossip</h1>
+        <p class="subtitle">You spend 65% of your conversation time doing something you condemn in others. Every society practices it. Every society condemns it. The explanation spans nine academic disciplines and reveals something fundamental about human nature.</p>
+
+        <div class="lang-buttons">
+            <a href="en.html" class="lang-btn en">
+                <span class="lang-flag">EN</span>
+                <span class="lang-name">
+                    <span class="primary">Read in English</span>
+                    <span class="secondary">~40 min read</span>
+                </span>
+            </a>
+            <a href="ro.html" class="lang-btn ro">
+                <span class="lang-flag">RO</span>
+                <span class="lang-name">
+                    <span class="primary">Citește in Română</span>
+                    <span class="secondary">~40 min lectură</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="disciplines">
+            <span class="disc-tag">Evolutionary Psychology</span>
+            <span class="disc-tag">Anthropology</span>
+            <span class="disc-tag">Psychology</span>
+            <span class="disc-tag">Sociology</span>
+            <span class="disc-tag">Economics</span>
+            <span class="disc-tag">Game Theory</span>
+            <span class="disc-tag">Neuroscience</span>
+            <span class="disc-tag">Political Science</span>
+            <span class="disc-tag">Linguistics</span>
+        </div>
+
+        <div class="meta">
+            <p>An exploration of the adaptive logic behind humanity's most universal behavior.</p>
+        </div>
+    </div>
+</body>
+</html>
