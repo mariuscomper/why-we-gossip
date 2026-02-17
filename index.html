@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden in Plain Sight — Multi-Disciplinary Analyses of Universal Human Behaviors</title>
+    <title>Why We Gossip — The Hidden Logic of Humanity's Most Universal Behavior</title>
 
-    <meta property="og:title" content="Hidden in Plain Sight: Why We Do What We Do">
-    <meta property="og:description" content="Deep multi-disciplinary analyses of the universal human behaviors hiding right in front of us. Why we gossip. Why we procrastinate. And more to come.">
+    <meta property="og:title" content="Why We Gossip: The Hidden Logic of Humanity's Most Universal Behavior">
+    <meta property="og:description" content="You spend 65% of your conversation time doing something you condemn in others. A deep analysis from evolutionary psychology, anthropology, economics, game theory, neuroscience, and beyond.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mariuscomper.github.io/why-we-gossip/">
-    <meta property="og:site_name" content="Hidden in Plain Sight">
+    <meta property="og:site_name" content="Why We Gossip">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hidden in Plain Sight: Why We Do What We Do">
-    <meta name="twitter:description" content="Deep multi-disciplinary analyses of universal human behaviors. Why we gossip. Why we procrastinate. And more.">
+    <meta name="twitter:title" content="Why We Gossip: The Hidden Logic of Humanity's Most Universal Behavior">
+    <meta name="twitter:description" content="You spend 65% of your conversation time doing something you condemn in others. A deep multi-disciplinary analysis across 9 academic disciplines.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,8 @@
     <style>
         :root {
             --bg-dark: #1a1a2e;
+            --accent: #2d5a4e;
+            --accent-gold: #b8862e;
             --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
@@ -37,6 +39,10 @@
             background: var(--bg-dark);
             color: #fff;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow-x: hidden;
         }
@@ -46,108 +52,40 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(ellipse at 20% 30%, rgba(45,90,78,0.2) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 70%, rgba(74,59,143,0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 50% 50%, rgba(184,134,46,0.08) 0%, transparent 60%);
+                        radial-gradient(ellipse at 80% 70%, rgba(184,134,46,0.15) 0%, transparent 50%);
             z-index: 0;
         }
 
-        .page { position: relative; z-index: 1; }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 5rem 2rem 3rem;
-            max-width: 750px;
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
-        .header-label {
+        .label {
             font-weight: 600; font-size: 0.6rem; letter-spacing: 0.3em;
             text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 2rem;
         }
 
-        .header h1 {
+        h1 {
             font-family: var(--font-serif);
             font-size: clamp(2.2rem, 6vw, 3.8rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 1.2rem;
             letter-spacing: -0.02em;
         }
 
-        .header .tagline {
+        .tagline {
             font-size: 1rem; font-weight: 300;
             color: rgba(255,255,255,0.55); line-height: 1.7;
-            max-width: 580px; margin: 0 auto;
+            max-width: 580px; margin: 0 auto 2.5rem;
         }
 
-        /* Articles Grid */
-        .articles {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 2rem 5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .article-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .article-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: 16px;
-        }
-
-        .article-card:hover {
-            border-color: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-        }
-
-        .article-card.gossip::before {
-            background: linear-gradient(135deg, rgba(45,90,78,0.1), rgba(184,134,46,0.05));
-        }
-        .article-card.gossip:hover::before { opacity: 1; }
-
-        .article-card.procrastination::before {
-            background: linear-gradient(135deg, rgba(74,59,143,0.1), rgba(196,118,46,0.05));
-        }
-        .article-card.procrastination:hover::before { opacity: 1; }
-
-        .card-inner { position: relative; z-index: 1; }
-
-        .card-number {
-            font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em;
-            text-transform: uppercase; margin-bottom: 1rem;
-        }
-        .gossip .card-number { color: #5daa96; }
-        .procrastination .card-number { color: #8b7bd4; }
-
-        .card-title {
-            font-family: var(--font-serif);
-            font-size: 1.8rem; font-weight: 700; line-height: 1.2;
-            margin-bottom: 0.8rem;
-        }
-
-        .card-hook {
-            font-size: 0.95rem; font-weight: 300;
-            color: rgba(255,255,255,0.6); line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-disciplines {
-            display: flex; flex-wrap: wrap; gap: 0.4rem;
-            margin-bottom: 1.8rem;
+        .disciplines {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem;
+            margin-bottom: 2.5rem;
         }
 
         .disc-tag {
@@ -159,132 +97,90 @@
             border: 1px solid rgba(255,255,255,0.06);
         }
 
-        .card-links {
-            display: flex; gap: 1rem; flex-wrap: wrap;
+        .links {
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
-        .card-link {
+        .link {
             display: inline-flex; align-items: center; gap: 0.6rem;
-            padding: 0.7rem 1.5rem; border-radius: 8px;
-            text-decoration: none; font-weight: 500; font-size: 0.85rem;
-            transition: all 0.2s; border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.85rem 2rem; border-radius: 8px;
+            text-decoration: none; font-weight: 500; font-size: 0.9rem;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
             color: #fff;
+            background: rgba(45,90,78,0.25);
         }
 
-        .gossip .card-link { background: rgba(45,90,78,0.25); }
-        .gossip .card-link:hover { background: rgba(45,90,78,0.4); border-color: rgba(45,90,78,0.5); }
-
-        .procrastination .card-link { background: rgba(74,59,143,0.25); }
-        .procrastination .card-link:hover { background: rgba(74,59,143,0.4); border-color: rgba(74,59,143,0.5); }
+        .link:hover {
+            background: rgba(45,90,78,0.4);
+            border-color: rgba(45,90,78,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
 
         .link-lang {
             font-size: 0.65rem; font-weight: 600;
             letter-spacing: 0.05em; opacity: 0.7;
         }
 
-        /* Footer */
         .footer {
-            text-align: center;
-            padding: 3rem 2rem;
             font-size: 0.7rem;
             color: rgba(255,255,255,0.25);
             border-top: 1px solid rgba(255,255,255,0.06);
-            max-width: 600px;
-            margin: 0 auto;
+            padding-top: 2rem;
+            max-width: 500px;
         }
 
-        @media (max-width: 640px) {
-            .header { padding: 3.5rem 1.5rem 2rem; }
-            .header h1 { font-size: 2rem; }
-            .articles { padding: 1.5rem; }
-            .article-card { padding: 1.8rem; }
-            .card-title { font-size: 1.4rem; }
-            .card-links { flex-direction: column; }
-            .card-link { justify-content: center; }
-        }
-
-        /* Fade in animation */
-        .header > *, .article-card {
+        .page > * {
             opacity: 0;
             transform: translateY(15px);
             animation: fadeUp 0.6s ease forwards;
         }
-        .header > *:nth-child(1) { animation-delay: 0.1s; }
-        .header > *:nth-child(2) { animation-delay: 0.2s; }
-        .header > *:nth-child(3) { animation-delay: 0.35s; }
-        .article-card:nth-child(1) { animation-delay: 0.5s; }
-        .article-card:nth-child(2) { animation-delay: 0.65s; }
+        .page > *:nth-child(1) { animation-delay: 0.1s; }
+        .page > *:nth-child(2) { animation-delay: 0.2s; }
+        .page > *:nth-child(3) { animation-delay: 0.35s; }
+        .page > *:nth-child(4) { animation-delay: 0.5s; }
+        .page > *:nth-child(5) { animation-delay: 0.6s; }
+        .page > *:nth-child(6) { animation-delay: 0.7s; }
 
         @keyframes fadeUp {
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 640px) {
+            .page { padding: 3rem 1.5rem; }
+            h1 { font-size: 2rem; }
+            .links { flex-direction: column; }
+            .link { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <header class="header">
-            <div class="header-label">Multi-Disciplinary Analyses of Universal Human Behaviors</div>
-            <h1>Hidden in Plain Sight</h1>
-            <p class="tagline">Deep explorations of the behaviors every human shares but nobody fully understands. Each analysis draws on evolutionary psychology, neuroscience, anthropology, economics, and beyond.</p>
-        </header>
-
-        <div class="articles">
-
-            <div class="article-card gossip">
-                <div class="card-inner">
-                    <div class="card-number">Analysis 01</div>
-                    <div class="card-title">Why We Gossip</div>
-                    <p class="card-hook">You spend 65% of your conversation time doing something you condemn in others. Every society practices it. Every society condemns it. Language itself may have evolved for it.</p>
-                    <div class="card-disciplines">
-                        <span class="disc-tag">Evolutionary Psychology</span>
-                        <span class="disc-tag">Anthropology</span>
-                        <span class="disc-tag">Economics</span>
-                        <span class="disc-tag">Game Theory</span>
-                        <span class="disc-tag">Neuroscience</span>
-                        <span class="disc-tag">Sociology</span>
-                        <span class="disc-tag">Political Science</span>
-                        <span class="disc-tag">Linguistics</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="en.html" class="card-link">
-                            <span class="link-lang">EN</span> Read in English
-                        </a>
-                        <a href="ro.html" class="card-link">
-                            <span class="link-lang">RO</span> Citește in Română
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="article-card procrastination">
-                <div class="card-inner">
-                    <div class="card-number">Analysis 02</div>
-                    <div class="card-title">Why We Procrastinate</div>
-                    <p class="card-hook">95% of humans procrastinate. It looks like pure self-sabotage. But what if it's a feature — calibrated for a world of genuine uncertainty, running in an environment of artificial deadlines?</p>
-                    <div class="card-disciplines">
-                        <span class="disc-tag">Evolutionary Psychology</span>
-                        <span class="disc-tag">Neuroscience</span>
-                        <span class="disc-tag">Behavioral Economics</span>
-                        <span class="disc-tag">Anthropology</span>
-                        <span class="disc-tag">Sociology</span>
-                        <span class="disc-tag">Philosophy</span>
-                        <span class="disc-tag">Decision Theory</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="procrastination-en.html" class="card-link">
-                            <span class="link-lang">EN</span> Read in English
-                        </a>
-                        <a href="procrastination-ro.html" class="card-link">
-                            <span class="link-lang">RO</span> Citește in Română
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+        <div class="label">Multi-Disciplinary Analysis of a Universal Human Behavior</div>
+        <h1>Why We Gossip</h1>
+        <p class="tagline">You spend 65% of your conversation time doing something you condemn in others. Every society practices it. Every society condemns it. Language itself may have evolved for it.</p>
+        <div class="disciplines">
+            <span class="disc-tag">Evolutionary Psychology</span>
+            <span class="disc-tag">Anthropology</span>
+            <span class="disc-tag">Economics</span>
+            <span class="disc-tag">Game Theory</span>
+            <span class="disc-tag">Neuroscience</span>
+            <span class="disc-tag">Sociology</span>
+            <span class="disc-tag">Political Science</span>
+            <span class="disc-tag">Linguistics</span>
         </div>
-
+        <div class="links">
+            <a href="en.html" class="link">
+                <span class="link-lang">EN</span> Read in English
+            </a>
+            <a href="ro.html" class="link">
+                <span class="link-lang">RO</span> Citeste in Romana
+            </a>
+        </div>
         <div class="footer">
-            <p>Each analysis synthesizes research from multiple academic disciplines to reveal the hidden logic behind behaviors we all share but rarely examine.</p>
+            <p>A deep exploration drawing on evolutionary psychology, anthropology, economics, game theory, neuroscience, and beyond to reveal the hidden logic behind a behavior we all share but rarely examine.</p>
         </div>
     </div>
 </body>
