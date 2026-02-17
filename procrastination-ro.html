@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De ce procrastinăm — O analiză multi-disciplinară</title>
+
+    <meta property="og:title" content="De ce procrastinăm: Logica ascunsă a auto-sabotajului preferat al umanității">
+    <meta property="og:description" content="95% dintre oameni procrastinează. Pare un defect. Ar putea fi o funcționalitate care rulează în mediul greșit. O analiză profundă din psihologie evoluționistă, neuroștiință, economie comportamentală, antropologie și filosofie.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:url" content="https://mariuscomper.github.io/why-we-gossip/procrastination-ro.html">
+    <meta property="og:site_name" content="De ce procrastinăm">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De ce procrastinăm: Logica ascunsă a auto-sabotajului preferat al umanității">
+    <meta name="twitter:description" content="95% dintre oameni procrastinează. Pare un defect. Ar putea fi o funcționalitate care rulează în mediul greșit.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #f6f5fa;
+            --bg-secondary: #eae8f0;
+            --bg-dark: #1a1a2e;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --text-muted: #7a7a8a;
+            --accent: #4a3b8f;
+            --accent-light: #6b5bb5;
+            --accent-gold: #c4762e;
+            --accent-gold-light: #e08a33;
+            --border: #d8d5e0;
+            --shadow: 0 2px 20px rgba(26, 26, 46, 0.06);
+            --shadow-lg: 0 8px 40px rgba(26, 26, 46, 0.1);
+            --max-width: 720px;
+            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 18px; }
+        body {
+            font-family: var(--font-sans); color: var(--text-primary);
+            background: var(--bg-primary); line-height: 1.8;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+
+        .lang-toggle {
+            position: fixed; top: 1.2rem; right: 1.5rem; z-index: 1001;
+            display: flex; gap: 0.3rem; background: rgba(26,26,46,0.8);
+            backdrop-filter: blur(10px); border-radius: 8px; padding: 0.3rem;
+        }
+        .lang-toggle a {
+            color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.7rem;
+            font-weight: 600; letter-spacing: 0.05em; padding: 0.3rem 0.7rem;
+            border-radius: 6px; transition: all 0.2s;
+        }
+        .lang-toggle a.active { background: var(--accent); color: white; }
+        .lang-toggle a:hover:not(.active) { color: rgba(255,255,255,0.8); }
+
+        .progress-bar {
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-gold));
+            z-index: 1000; transition: width 0.1s linear;
+        }
+
+        .hero {
+            background: var(--bg-dark); color: #fff; padding: 6rem 2rem 5rem;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(74,59,143,0.3) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 50%, rgba(196,118,46,0.15) 0%, transparent 60%);
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .hero-label {
+            font-family: var(--font-sans); font-weight: 600; font-size: 0.7rem;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-gold-light); margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; letter-spacing: -0.01em;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.75);
+            max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.7;
+        }
+        .hero-meta {
+            display: flex; justify-content: center; gap: 2rem; font-size: 0.75rem;
+            color: rgba(255,255,255,0.5); font-weight: 400;
+        }
+        .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+        .toc-container {
+            max-width: var(--max-width); margin: -2rem auto 3rem;
+            padding: 0 1.5rem; position: relative; z-index: 2;
+        }
+        .toc {
+            background: var(--bg-card); border-radius: 12px; padding: 2rem 2.5rem;
+            box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+        }
+        .toc-title {
+            font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700;
+            color: var(--accent); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .toc ol { list-style: none; counter-reset: toc-counter; }
+        .toc li { counter-increment: toc-counter; margin-bottom: 0.5rem; }
+        .toc li a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-weight: 400;
+            display: flex; align-items: baseline; gap: 0.75rem; padding: 0.3rem 0;
+            transition: color 0.2s, transform 0.2s; border-radius: 4px;
+        }
+        .toc li a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-gold);
+            font-weight: 400; min-width: 1.5rem;
+        }
+        .toc li a:hover { color: var(--accent); transform: translateX(4px); }
+
+        .content { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem 4rem; }
+        .section { margin-bottom: 4rem; scroll-margin-top: 2rem; }
+        .section-number {
+            font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-gold);
+            letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block;
+        }
+        h2 { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem; color: var(--text-primary); }
+        h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; line-height: 1.3; margin: 2.5rem 0 1rem; color: var(--text-primary); }
+        h4 { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; margin: 2rem 0 0.8rem; color: var(--accent); }
+        p { margin-bottom: 1.3rem; color: var(--text-secondary); font-weight: 400; }
+
+        .pullquote { border-left: 3px solid var(--accent-gold); padding: 1.5rem 0 1.5rem 1.8rem; margin: 2.5rem 0; }
+        .pullquote p { font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--text-primary); line-height: 1.6; margin-bottom: 0; }
+        .pullquote .attribution { font-family: var(--font-sans); font-size: 0.75rem; font-style: normal; color: var(--text-muted); margin-top: 0.8rem; display: block; }
+
+        .insight-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem 2rem; margin: 2rem 0; box-shadow: var(--shadow); }
+        .insight-card .card-label { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.8rem; }
+        .insight-card p { font-size: 0.95rem; margin-bottom: 0; }
+        .insight-card p + p { margin-top: 0.8rem; }
+
+        .key-term { background: linear-gradient(180deg, transparent 60%, rgba(196,118,46,0.15) 60%); font-weight: 500; color: var(--text-primary); }
+
+        .mechanism-list { list-style: none; margin: 1.5rem 0; }
+        .mechanism-list li { padding: 0.8rem 0 0.8rem 1.8rem; position: relative; color: var(--text-secondary); font-size: 0.95rem; border-bottom: 1px solid rgba(216,213,224,0.5); }
+        .mechanism-list li:last-child { border-bottom: none; }
+        .mechanism-list li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-gold); }
+
+        .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-secondary); border-radius: 10px; }
+        .flow-step { background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.8rem; font-weight: 500; color: var(--text-primary); border: 1px solid var(--border); }
+        .flow-arrow { color: var(--accent-gold); font-size: 1rem; font-weight: 700; }
+
+        .process-step { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start; }
+        .process-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; margin-top: 0.2rem; }
+        .process-content p { margin-bottom: 0.5rem; }
+        .process-content strong { color: var(--text-primary); }
+
+        .section-divider { text-align: center; margin: 4rem 0; color: var(--accent-gold); font-size: 1.2rem; letter-spacing: 0.5em; }
+
+        .highlight-box { background: linear-gradient(135deg, rgba(74,59,143,0.06), rgba(196,118,46,0.06)); border: 1px solid rgba(74,59,143,0.15); border-radius: 10px; padding: 1.8rem 2rem; margin: 2rem 0; }
+        .highlight-box p { color: var(--text-primary); font-weight: 400; }
+
+        .footer { background: var(--bg-dark); color: rgba(255,255,255,0.5); text-align: center; padding: 3rem 2rem; font-size: 0.75rem; }
+        .footer .footer-title { font-family: var(--font-serif); color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 0.5rem; }
+
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s; z-index: 100; font-size: 1.1rem; }
+        .back-to-top.visible { opacity: 1; transform: translateY(0); }
+        .back-to-top:hover { background: var(--accent-light); }
+
+        @media (max-width: 640px) {
+            html { font-size: 16px; } .hero { padding: 4rem 1.5rem 3.5rem; } .hero h1 { font-size: 1.8rem; }
+            .hero-meta { flex-direction: column; gap: 0.5rem; } .toc { padding: 1.5rem; }
+            h2 { font-size: 1.5rem; } h3 { font-size: 1.15rem; }
+            .pullquote { padding-left: 1.2rem; } .pullquote p { font-size: 1.05rem; }
+            .flow { flex-direction: column; } .insight-card { padding: 1.3rem 1.5rem; }
+            .lang-toggle { top: 0.8rem; right: 0.8rem; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        @media print { .progress-bar, .back-to-top, .toc-container, .lang-toggle { display: none; } .hero { background: #333; } .section { page-break-inside: avoid; } }
+    </style>
+</head>
+<body>
+    <div class="lang-toggle">
+        <a href="procrastination-en.html">EN</a>
+        <a href="procrastination-ro.html" class="active">RO</a>
+    </div>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Psihologie evoluționistă &bull; Neuroștiință &bull; Economie comportamentală &bull; Antropologie &bull; Filosofie</div>
+            <h1>De ce procrastinăm</h1>
+            <p class="subtitle">95% dintre oameni procrastinează. Pare pur auto-sabotaj. Dar dacă este o funcționalitate — calibrată pentru o lume de incertitudine reală, care rulează într-un mediu de termene limită artificiale?</p>
+            <div class="hero-meta">
+                <span>&#9679; Analiză multi-disciplinară</span>
+                <span>&#9679; ~40 min lectură</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="toc-container">
+        <div class="toc">
+            <div class="toc-title">&#9776; Cuprins</div>
+            <ol>
+                <li><a href="#intro">Defectul pe care 95% dintre oameni îl au</a></li>
+                <li><a href="#evo-psy">Psihologie evoluționistă: calibrat pentru o lume periculoasă</a></li>
+                <li><a href="#neuroscience">Neuroștiință: sinele tău viitor este un necunoscut</a></li>
+                <li><a href="#psychology">Psihologie: nu este despre timp, este despre emoții</a></li>
+                <li><a href="#economics">Economie comportamentală: iraționalitate rațională</a></li>
+                <li><a href="#anthropology">Antropologie: societatea afluent originală</a></li>
+                <li><a href="#sociology">Sociologie: inventarea timpului pierdut</a></li>
+                <li><a href="#philosophy">Filosofie: cel mai vechi puzzle uman</a></li>
+                <li><a href="#synthesis1">Prima sinteză</a></li>
+                <li style="list-style:none;padding:0;margin:0.3rem 0"><span style="display:block;border-top:1px solid #d8d5e0"></span></li>
+                <li><a href="#decision">Arhitectura profundă I: când așteptarea este optimă</a></li>
+                <li><a href="#neuro-deep">Arhitectura profundă II: bătălia din creier</a></li>
+                <li><a href="#psych-deep">Arhitectura profundă III: șapte mecanisme ale amânării</a></li>
+                <li><a href="#econ-deep">Arhitectura profundă IV: dispozitive de angajament</a></li>
+                <li><a href="#anthro-deep">Arhitectura profundă V: cum se raportează alte culturi la timp</a></li>
+                <li><a href="#data">Datele incomode</a></li>
+                <li><a href="#pathology">Când degenerează</a></li>
+                <li><a href="#ultimate">Sinteza finală</a></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main class="content">
+
+        <section class="section fade-in" id="intro">
+            <span class="section-number">01</span>
+            <h2>Defectul pe care 95% dintre oameni îl au</h2>
+            <p>Citești asta, aproape sigur, în loc să faci altceva ce ar trebui să faci. Meta-analiza lui Steel (2007) a constatat că aproximativ <strong>95% dintre oameni admit că procrastinează</strong>, iar circa 20% sunt procrastinatori cronici — persoane pentru care amânarea nu este ocazională, ci un tipar definitoriu al vieții.</p>
+            <p>Acesta nu este un fenomen modern. Cuvântul însuși provine din latinescul <em>procrastinare</em> — „a amâna pentru mâine" — iar comportamentul este și mai vechi. Poetul grec Hesiod avertiza împotriva lui în 800 î.Hr. Bhagavad Gita îl abordează. Hieroglifele egiptene antice conțin îndemnuri împotriva amânării. Procrastinarea pare a fi <strong>la fel de veche ca civilizația însăși</strong>.</p>
+
+            <div class="pullquote">
+                <p>Și totuși o tratăm ca un eșec personal — un defect de caracter, o slăbiciune a voinței, un bug de reparat cu aplicații mai bune și rutine matinale. Dar dacă această încadrare este complet greșită?</p>
+            </div>
+
+            <p>Orice tipar comportamental împărtășit de 95% dintr-o specie, transversal între toate culturile și toată istoria documentată, nu este un defect. Este o funcționalitate. Poate una care funcționează defectuos în mediul nostru actual. Poate una a cărei logică ne-a devenit invizibilă. Dar o funcționalitate totuși — iar pentru a o înțelege avem nevoie nu de cărți de dezvoltare personală, ci de psihologie evoluționistă, neuroștiință, economie comportamentală, antropologie și filosofie.</p>
+        </section>
+
+        <section class="section fade-in" id="evo-psy">
+            <span class="section-number">02</span>
+            <h2>Psihologie evoluționistă: calibrat pentru o lume periculoasă</h2>
+
+            <h3>Raționalitatea biasului prezentului</h3>
+            <p>Perspectiva evoluționistă centrală: <span class="key-term">în medii de incertitudine reală, a prefera recompensele imediate față de cele viitoare nu este irațional — este optim.</span></p>
+            <p>Pentru cea mai mare parte a evoluției umane, viitorul era cu adevărat imprevizibil. Puteai muri mâine — de prădători, infecție, violență sau foamete. A investi masiv în rezultate la luni sau ani distanță era, în multe contexte ancestrale, un pariu prost. Organismul care mânca mâncarea acum, se odihnea când putea și se împerechea când apărea oportunitatea era adesea mai bine adaptat decât cel care amâna gratificarea pentru un viitor care s-ar fi putut să nu vină niciodată.</p>
+            <p>Aceasta nu este lene. Este <span class="key-term">decontare temporală adaptivă</span> — ponderarea mai puternică a recompenselor prezente pentru că probabilitatea de a colecta recompensele viitoare este cu adevărat incertă.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Discrepanța</div>
+                <p>Viața modernă a redus radical incertitudinea mortalității, crescând în același timp radical numărul sarcinilor cu rezultate îndepărtate și abstracte (economisirea pentru pensie, studiul pentru examene peste luni, scrierea de rapoarte pentru evaluări trimestriale). Purtăm un sistem de decontare temporală calibrat pentru o speranță de viață de 30 de ani într-o lume care cere planificare pentru una de 80. <strong>Procrastinarea este sunetul firmware-ului din Pleistocen rulând pe hardware din secolul XXI.</strong></p>
+            </div>
+
+            <h3>Conservarea energiei: a nu face nimic este implicit rațional</h3>
+            <p>În mediile ancestrale sărace caloric, fiecare acțiune avea un cost energetic. Organismul care putea obține același rezultat cu mai puțin efort — sau care amâna efortul până când era absolut necesar — conserva calorii prețioase. <strong>A nu face nimic până în ultimul moment posibil este, în termeni energetici, comportament optim de culegere.</strong></p>
+            <p>Aceasta se corelează direct cu experiența comună a procrastinatorilor: sarcina se rezolvă — întotdeauna se rezolvă — dar în ultimul moment posibil, când costul amânării ulterioare depășește în sfârșit costul acțiunii. Sistemul nu este stricat. Execută o strategie de energie minimă.</p>
+
+            <h3>Problema energiei de activare</h3>
+            <p>Vânătorii-culegătorii nu se confruntau cu probleme de „inițiere a sarcinii" pentru că sarcinile lor aveau <strong>feedback imediat, tangibil, senzorial</strong>. Vezi animalul, îl urmărești. Simți foamea, culegi. Decalajul între stimul și răspuns era minimal. Sarcinile moderne — scrierea de rapoarte, răspunsul la emailuri, completarea de formulare — nu au niciun declanșator senzorial, niciun feedback imediat și nicio relație clară între efort și recompensă. Creierele noastre nu au fost niciodată proiectate pentru asta.</p>
+        </section>
+
+        <section class="section fade-in" id="neuroscience">
+            <span class="section-number">03</span>
+            <h2>Neuroștiință: sinele tău viitor este un necunoscut</h2>
+
+            <h3>Războiul limbic-prefrontal</h3>
+            <p>Neuroștiința procrastinării este, în esență, povestea <strong>a două sisteme cerebrale în conflict</strong>. <span class="key-term">Sistemul limbic</span> — evolutiv vechi, condus emoțional, preocupat de experiența imediată — vrea confort acum. <span class="key-term">Cortexul prefrontal</span> — evolutiv recent, responsabil de planificare și raționament abstract — vrea să investească acum pentru un câștig viitor.</p>
+            <p>Când procrastinezi, sistemul limbic câștigă. Nu pentru că ești slab, ci pentru că sistemul limbic este mai rapid, mai vechi, mai profund cablat și funcționează automat. Cortexul prefrontal necesită efort conștient pentru activare. <strong>Procrastinarea nu este absența autocontrolului. Este ceea ce se întâmplă când un sistem de 500 de milioane de ani anulează unul de 2 milioane de ani.</strong></p>
+
+            <div class="insight-card">
+                <div class="card-label">Necunoscutul din oglindă</div>
+                <p>Studiile fMRI ale lui Hal Hershfield de la UCLA au dezvăluit ceva uimitor: <strong>când oamenii se gândesc la sinele lor viitor, creierul activează aceleași regiuni pe care le folosește pentru a gândi despre necunoscuți</strong> — nu cortexul prefrontal medial auto-referențial, ci regiunile pentru procesarea informațiilor despre alte persoane. Creierul tău tratează literalmente „tu peste 10 ani" ca pe o persoană diferită.</p>
+                <p>Aceasta reîncadrează complet procrastinarea. Nu eșuezi să-ți pese de propriul viitor. <strong>Refuzi să te sacrifici pentru un necunoscut.</strong> Ceea ce, din perspectiva creierului, este perfect rațional.</p>
+            </div>
+
+            <h3>Dopamina și inițierea sarcinilor</h3>
+            <p>Procrastinarea nu este adesea despre motivație, ci despre <span class="key-term">inițierea sarcinilor mediată de dopamină</span>. Dopamina nu creează doar plăcere — creează <em>anticiparea</em> plăcerii care conduce acțiunea. Sarcinile care nu promit nicio recompensă clară generează dopamină insuficientă pentru a declanșa circuitul „acționează".</p>
+            <p>De aceea termenele limită funcționează: termenul care se apropie convertește calculul de la „recompensă viitoare vagă" la <strong>„evitarea iminentă a pierderii"</strong>, care activează un sistem motivațional complet diferit (răspunsul de amenințare condus de amigdală) care este mult mai puternic decât sistemul de recompensă.</p>
+        </section>
+
+        <section class="section fade-in" id="psychology">
+            <span class="section-number">04</span>
+            <h2>Psihologie: nu este despre timp, este despre emoții</h2>
+
+            <h3>Teoria reglării emoționale</h3>
+            <p>Perspectiva cea mai importantă pe care psihologia modernă o oferă despre procrastinare: <span class="key-term">procrastinarea nu este o problemă de gestionare a timpului. Este o problemă de gestionare a emoțiilor.</span></p>
+            <p>Sirois și Pychyl (2013) au demonstrat că oamenii procrastinează nu pentru că nu-și pot gestiona programul, ci pentru că sarcina este asociată cu <strong>emoții negative</strong> — anxietate, plictiseală, frustrare, resentiment, îndoială de sine, copleșire — iar procrastinarea este strategia de evitare a acelor emoții.</p>
+
+            <div class="flow">
+                <span class="flow-step">Sarcina declanșează emoție negativă</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Evitarea aduce ușurare</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Ușurarea întărește evitarea</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Amânarea crește anxietatea</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-step">Mai multă evitare necesară</span>
+            </div>
+
+            <h3>Teoria motivației temporale</h3>
+            <p>Steel (2007) oferă cadrul matematic:</p>
+            <div class="highlight-box">
+                <p><strong>Motivație = (Așteptare &times; Valoare) / (Impulsivitate &times; Întârziere)</strong></p>
+                <p>Pe măsură ce <strong>întârzierea</strong> până la recompensă crește, motivația scade — nu liniar, ci <strong>hiperbolic</strong>. Aceasta înseamnă că motivația este aproape plată până aproape de termen, apoi crește brusc. De aceea poți ști de o sarcină săptămâni întregi fără să simți nimic, apoi lucrezi cu intensitate maniacală în ultimele ore. Nu te-ai schimbat tu. Ecuația s-a schimbat.</p>
+            </div>
+
+            <h3>Auto-handicaparea</h3>
+            <p>Amânând, creezi o <span class="key-term">scuză încorporată</span>. Dacă începi devreme și eșuezi, eșecul reflectă abilitățile tale. Dacă începi târziu și eșuezi, poți atribui asta timpului insuficient. Procrastinarea protejează ego-ul asigurându-se că <strong>capacitatea ta adevărată nu este niciodată pe deplin testată</strong>. „Aș fi reușit dacă aș fi început mai devreme" este protector psihologic într-un mod în care „Am început devreme și tot am eșuat" nu este.</p>
+        </section>
+
+        <section class="section fade-in" id="economics">
+            <span class="section-number">05</span>
+            <h2>Economie comportamentală: iraționalitate rațională</h2>
+
+            <h3>Decontarea hiperbolică</h3>
+            <p>Modelele economice standard presupun că oamenii decontează recompensele viitoare exponențial. Oamenii nu fac asta. Folosim <span class="key-term">decontare hiperbolică</span>: rata de decontare este mult mai abruptă pentru întârzieri din viitorul apropiat decât pentru cele din viitorul îndepărtat. Vom lua 100 de lei azi în loc de 110 mâine, dar vom aștepta bucuroși ziua suplimentară când ambele opțiuni sunt la o lună distanță. Această inconsecvență este amprenta matematică a procrastinării.</p>
+
+            <h3>Inconsecvența temporală: conții mulțimi</h3>
+            <p>Strotz (1955) a identificat problema fundamentală: <span class="key-term">preferințele tale se schimbă în timp</span>. Tu-de-luni vrei cu adevărat să faci exerciții miercuri. Tu-de-miercuri vrea cu adevărat să stea în pat. Amândoi ești tu. Niciunul nu minte.</p>
+
+            <div class="pullquote">
+                <p>Procrastinarea nu este un eșec al sinelui. Este un conflict între sinele — sinele prezent și sinele viitor, fiecare cu preferințe legitime dar incompatibile.</p>
+            </div>
+
+            <h3>Aversiunea la pierdere și termenele limită</h3>
+            <p>Kahneman și Tversky au arătat că pierderile cântăresc mai mult decât câștigurile echivalente. Aceasta explică de ce termenele limită sunt atât de eficiente: convertesc procrastinarea dintr-un cadru de „câștig ratat" într-un cadru de <strong>„pierdere certă"</strong>. Cadrul de pierdere activează un sistem motivațional mult mai puternic.</p>
+        </section>
+
+        <section class="section fade-in" id="anthropology">
+            <span class="section-number">06</span>
+            <h2>Antropologie: societatea afluent originală</h2>
+
+            <h3>Folosirea timpului la vânătorii-culegători</h3>
+            <p>Celebra caracterizare a lui Marshall Sahlins a vânătorilor-culegători ca <span class="key-term">„societatea afluent originală"</span> se bazează pe o constatare empirică uimitoare: majoritatea grupurilor de vânători-culegători lucrează <strong>3-5 ore pe zi</strong>. Restul timpului este petrecut odihindu-se, socializând, jucându-se, povestind și — în limbaj modern — „procrastinând."</p>
+
+            <div class="insight-card">
+                <div class="card-label">Inversiunea</div>
+                <p>Aceasta reîncadrează întreaga narațiune a procrastinării. Întrebăm „de ce procrastinăm?" ca și cum procrastinarea ar fi aberația și productivitatea constantă ar fi starea naturală. Dovezile antropologice sugerează opusul: <strong>productivitatea constantă este aberația. Procrastinarea — efort intermitent cu perioade lungi de odihnă — este implicit ancestral.</strong> Întrebarea nu este de ce procrastinăm. Este de ce am crezut vreodată că nu ar trebui.</p>
+            </div>
+
+            <h3>Timpul sarcinii vs. timpul ceasului</h3>
+            <p>Înainte de ceasurile mecanice, majoritatea societăților umane funcționau pe <span class="key-term">timpul sarcinii</span> mai degrabă decât pe timpul ceasului. Lucrai când munca trebuia făcută și te opreai când era gata. Nu exista conceptul de „a pierde timp" pentru că timpul nu era o marfă de cheltuit sau economisit. Conceptul de procrastinare <strong>necesită timpul ceasului ca precondiție</strong>.</p>
+        </section>
+
+        <section class="section fade-in" id="sociology">
+            <span class="section-number">07</span>
+            <h2>Sociologie: inventarea timpului pierdut</h2>
+
+            <h3>Etica protestantă a muncii și moralizarea timpului</h3>
+            <p><em>Etica protestantă și spiritul capitalismului</em> a lui Max Weber urmărește cum munca a devenit un imperativ moral în cultura occidentală. Doctrina calvină a predestinării a creat anxietate intensă despre mântuire, iar hărnicia pământeană a devenit semnalul primar al apartenenței la „aleși." <strong>Lenea a devenit păcat.</strong> Nu păcat metaforic — păcat literal, teologic.</p>
+
+            <div class="pullquote">
+                <p>Procrastinarea se simte ca un păcat pentru că a fost literalmente catalogată ca păcat — de un cadru teologic în care majoritatea procrastinatorilor nu mai cred conștient, dar al cărui reziduul emoțional saturează cultura.</p>
+            </div>
+
+            <h3>Ocupația ca semnal de status</h3>
+            <p>Bellezza, Paharia și Keinan (2017) au demonstrat că în cultura americană, <strong>a fi ocupat este un semnal de status</strong>. A-i spune cuiva că ești ocupat îl face să creadă că ești important. Acest lucru este anormal istoric — în majoritatea culturilor pre-industriale, timpul liber era semnalul de status. În acest context cultural, procrastinarea nu este doar ineficientă — este <strong>o amenințare de status</strong>.</p>
+        </section>
+
+        <section class="section fade-in" id="philosophy">
+            <span class="section-number">08</span>
+            <h2>Filosofie: cel mai vechi puzzle uman</h2>
+
+            <h3>Akrasia: acționarea împotriva propriei judecăți</h3>
+            <p>Cuvântul grecesc <span class="key-term">akrasia</span> — slăbiciunea voinței, acționarea împotriva propriului interes cunoscut — a fost identificat de Aristotel ca unul dintre cele mai profunde puzzle-uri ale naturii umane. Cum poate un agent rațional să aleagă în cunoștință de cauză un rezultat mai rău?</p>
+
+            <h3>Heidegger: fuga de autenticitate</h3>
+            <p>Analiza existențială a lui Heidegger oferă o lectură mai profundă. Procrastinarea este o formă de <span class="key-term">Verfallenheit</span> — „cădere" în distragerile vieții de zi cu zi pentru a evita confruntarea cu condițiile fundamentale ale existenței: finitudinea, libertatea, responsabilitatea. Nu amânăm doar sarcini — amânăm <strong>confruntarea cu faptul că timpul nostru este limitat și alegerile ne definesc</strong>.</p>
+
+            <div class="pullquote">
+                <p>Procastinatorul nu se teme de sarcină. Se teme de angajament — pentru că angajamentul înseamnă închiderea ușilor, ceea ce înseamnă confruntarea cu faptul că viața este finită și fiecare alegere este o excludere.</p>
+            </div>
+
+            <h3>Paradoxul alegerii</h3>
+            <p>Cercetarea lui Barry Schwartz confirmă acest lucru filosofic: <strong>mai multe opțiuni produc mai multă procrastinare</strong>. Când ai două alegeri, alegi. Când ai douăzeci, amâni — pentru că potențialul de regret se multiplică cu fiecare alternativă, iar strategia optimă pentru minimizarea regretului este de a menține opțiunile deschise cât mai mult posibil.</p>
+        </section>
+
+        <section class="section fade-in" id="synthesis1">
+            <span class="section-number">09</span>
+            <h2>Prima sinteză</h2>
+
+            <div class="highlight-box">
+                <p>Transversal între discipline, o singură imagine apare: <strong>procrastinarea nu este un defect de caracter. Este un sistem comportamental perfect calibrat care operează în mediul greșit.</strong></p>
+            </div>
+
+            <ul class="mechanism-list">
+                <li><strong>Psihologia evoluționistă</strong>: decontarea noastră temporală este calibrată pentru medii cu mortalitate ridicată</li>
+                <li><strong>Neuroștiința</strong>: creierul tratează sinele viitor ca pe un necunoscut, făcând sacrificiul să pară ilogic</li>
+                <li><strong>Psihologia</strong>: procrastinarea este evitare emoțională mascată ca eșec de management al timpului</li>
+                <li><strong>Economia comportamentală</strong>: decontarea hiperbolică creează inconsecvență temporală sistematică</li>
+                <li><strong>Antropologia</strong>: productivitatea constantă este aberația istorică, nu procrastinarea</li>
+                <li><strong>Sociologia</strong>: durerea morală a procrastinării este un artefact cultural al eticii protestante a muncii</li>
+                <li><strong>Filosofia</strong>: procrastinarea este o fugă de anxietatea angajamentului într-o lume cu prea multe alegeri</li>
+            </ul>
+
+            <div class="pullquote">
+                <p>Industria de dezvoltare personală îți spune că procrastinarea este vina ta. Dovezile sugerează că este o interacțiune între psihologia antică și cerințele moderne — iar „soluția" nu este mai multă voință, ci un design mai bun al mediului.</p>
+            </div>
+        </section>
+
+        <div class="section-divider">&#9830; &#9830; &#9830;</div>
+
+        <section class="section fade-in" id="decision">
+            <span class="section-number">10</span>
+            <h2>Arhitectura profundă I: când așteptarea este optimă</h2>
+
+            <h3>Valoarea opțiunii de a amâna</h3>
+            <p>Teoria deciziei oferă o perspectivă pe care celelalte discipline o ratează: <span class="key-term">uneori, procrastinarea este strategia matematic optimă.</span></p>
+            <p>În economia financiară, o „opțiune reală" este valoarea posibilității de a lua o decizie mai târziu. Când viitorul este incert, angajarea devreme te blochează într-un rezultat care s-ar putea dovedi suboptim. Așteptarea îți permite să acumulezi mai multe informații, iar informația are valoare.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Problema secretarului</div>
+                <p>„Problema secretarului" (sau „problema opririi optime") întreabă: dacă intervievezi candidați secvențial, care este strategia optimă? Răspunsul demonstrat matematic: <strong>respinge primii 37% dintre candidați, apoi angajează-l pe următorul care este mai bun decât toți precedenții</strong>. Strategia optimă implică o perioadă obligatorie de așteptare — o procrastinare prescrisă matematic.</p>
+            </div>
+
+            <h3>Asimetria erorilor</h3>
+            <p>Există două tipuri de erori: a acționa prea devreme (angajament prematur) și a acționa prea târziu (oportunitate ratată). În mediile ancestrale, <strong>angajamentul prematur era adesea mai costisitor decât amânarea</strong>. Instinctul de a amâna înainte de a te angaja poate reflecta un bias evoluat spre tipul mai puțin costisitor de eroare.</p>
+        </section>
+
+        <section class="section fade-in" id="neuro-deep">
+            <span class="section-number">11</span>
+            <h2>Arhitectura profundă II: bătălia din creier</h2>
+
+            <h3>Problema continuității temporale a sinelui</h3>
+            <p>Cercetarea lui Hershfield merge mai adânc. Gradul în care indivizii experimentează <span class="key-term">continuitate temporală a sinelui</span> — sentimentul că sinele lor viitor este cu adevărat „ei" — prezice comportamentul financiar, alegerile de sănătate și procrastinarea mai bine decât inteligența, venitul sau personalitatea.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Experimentul cu fotografii îmbătrânite</div>
+                <p>Hershfield și colab. (2011) le-au arătat participanților fotografii digital îmbătrânite ale lor. După această singură intervenție, participanții <strong>au alocat semnificativ mai mulți bani economiilor pentru pensie</strong>. A face sinele viitor mai puțin abstract a redus procrastinarea pe o scară temporală de decenii. Implicația: procrastinarea poate fi rezolvabilă nu prin voință, ci prin <strong>ingineria identității</strong>.</p>
+            </div>
+
+            <h3>Vetoul amigdalei</h3>
+            <p>Când o sarcină este asociată cu emoții negative, <span class="key-term">amigdala</span> generează un semnal de evitare. Acest semnal concurează cu semnalul cortexului prefrontal, iar amigdala are un avantaj de viteză. <strong>Nu alegi să nu lucrezi. Alegerea a fost făcută pentru tine, preconștient, înainte să fii conștient că se întâmplă.</strong></p>
+
+            <h3>Rețeaua modului implicit și procrastinarea productivă</h3>
+            <p>Când procrastinezi, creierul nu este inactiv. Activează <span class="key-term">rețeaua modului implicit (DMN)</span> — aceeași rețea implicată în gândirea creativă, rezolvarea problemelor și planificarea autobiografică. Divagarea minții în timpul procrastinării este uneori cu adevărat productivă: consolidează amintirile, face conexiuni noi și generează soluții creative.</p>
+        </section>
+
+        <section class="section fade-in" id="psych-deep">
+            <span class="section-number">12</span>
+            <h2>Arhitectura profundă III: șapte mecanisme ale amânării</h2>
+
+            <div class="process-step">
+                <div class="process-num">1</div>
+                <div class="process-content">
+                    <p><strong>Aversivitatea sarcinii</strong> — Sarcinile plictisitoare, frustrante sau anxiogene generează răspunsuri de evitare. Tresari de la o sarcină dureroasă la fel cum tresari de la un arzător fierbinte. <strong>Tresărirea este automată; doar anularea ei este voluntară.</strong></p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">2</div>
+                <div class="process-content">
+                    <p><strong>Auto-eficacitate scăzută</strong> — Când nu crezi că poți finaliza cu succes o sarcină, valoarea așteptată a efortului scade spre zero. Procrastinarea este <strong>pesimism rațional</strong>.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">3</div>
+                <div class="process-content">
+                    <p><strong>Perfecționismul</strong> — Perfectioniștii stabilesc standarde imposibile, apoi amână pentru că începerea riscă să producă muncă imperfectă. Amânarea este despre <strong>evitarea confruntării dintre performanța ideală și cea reală</strong>.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">4</div>
+                <div class="process-content">
+                    <p><strong>Auto-handicaparea</strong> — Procrastinând, te asiguri că orice eșec poate fi atribuit timpului insuficient, nu abilităților insuficiente. O <span class="key-term">păstrare strategică a ambiguității</span>.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">5</div>
+                <div class="process-content">
+                    <p><strong>Reacția inversă a efectului Zeigarnik</strong> — Supraîncărcarea cognitivă a sarcinilor neterminate creează copleșire, care declanșează evitare, care creează mai multe sarcini neterminate. Așa procrastinarea cronică devine auto-perpetuantă.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">6</div>
+                <div class="process-content">
+                    <p><strong>Miopia temporală sub stres</strong> — Stresul îngustează focalizarea temporală. Sub stres cronic, creierul prioritizează amenințările imediate față de planificarea pe termen lung, creând un <strong>focus permanent pe prezent</strong>.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-num">7</div>
+                <div class="process-content">
+                    <p><strong>Oboseala decizională</strong> — Fiecare decizie epuizează o resursă cognitivă partajată. Procrastinarea crește pe parcursul zilei nu pentru că sarcina se schimbă, ci pentru că <strong>resursa de luare a deciziilor este epuizată</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="econ-deep">
+            <span class="section-number">13</span>
+            <h2>Arhitectura profundă IV: dispozitive de angajament</h2>
+
+            <h3>Odiseu și catargul</h3>
+            <p>Cel mai vechi dispozitiv de angajament din literatură: Odiseu, știind că nu va putea rezista cântecului Sirenelor, <strong>și-a ordonat echipajului să-l lege de catarg</strong>. Sinele prezent, știind că sinele viitor va avea preferințe diferite, a luat acțiuni de pre-angajament pentru a constrânge comportamentul acelui sine viitor.</p>
+
+            <ul class="mechanism-list">
+                <li><strong>Abonamente la sală</strong>: plata în avans convertește exercițiul din „sacrificiu de câștig" în „evitarea pierderii"</li>
+                <li><strong>Deduceri automate de economii</strong>: eliminarea punctului de decizie</li>
+                <li><strong>Termene limită</strong>: constrângeri temporale externe care convertesc consecințe viitoare vagi în consecințe iminente concrete</li>
+                <li><strong>Angajamente publice</strong>: anunțarea planurilor creează costuri reputaționale pentru eșec</li>
+            </ul>
+
+            <div class="pullquote">
+                <p>Întreaga industrie a dispozitivelor de angajament este construită pe o singură perspectivă economică: sinele tău prezent și sinele tău viitor sunt, în scopuri practice, agenți economici diferiți cu funcții de utilitate diferite.</p>
+            </div>
+
+            <h3>Arhitectura nudge</h3>
+            <p>Cadrul „nudge" al lui Thaler și Sunstein dezvăluie că mare parte din procrastinare este produsă de <strong>designul mediului, nu de caracterul personal</strong>. Opțiunea implicită contează enorm: când economisirea pentru pensie necesită înscriere activă, participarea este scăzută; când este automată cu opt-out, participarea este aproape universală. Aceiași oameni, aceleași preferințe — comportament diferit, produs în întregime de schimbarea arhitecturii alegerii.</p>
+        </section>
+
+        <section class="section fade-in" id="anthro-deep">
+            <span class="section-number">14</span>
+            <h2>Arhitectura profundă V: cum se raportează alte culturi la timp</h2>
+
+            <h3>Culturi monocronice vs. policronice</h3>
+            <p>Distincția lui Edward T. Hall între culturi <span class="key-term">monocronice</span> (un lucru pe rând, programele sunt sacre) și <span class="key-term">policronice</span> (multe lucruri deodată, relațiile primează față de program) dezvăluie că conceptul occidental de procrastinare este cultural specific.</p>
+            <p>În culturile policronice, a începe o sarcină „târziu" după ceas nu este procrastinare — este <strong>atenție la prioritățile relaționale și sociale</strong> pe care cultura le valorizează deasupra respectării programului.</p>
+
+            <div class="insight-card">
+                <div class="card-label">Revoluția agricolă</div>
+                <p>Inventarea agriculturii acum 10.000 de ani a fost, printre altele, <strong>inventarea gratificării amânate la scară civilizațională</strong>. Pentru prima dată, oamenii trebuiau să lucreze acum (planteze, îngrijească) pentru un câștig la luni distanță (recolta). Aceasta era cognitiv și emoțional nenaturală. Societățile agricole au dezvoltat sisteme elaborate de ritual, presiune socială și instrucție morală specific pentru a depăși tendința umană naturală de a prioritiza experiența prezentă. Noi numim acea tendință procrastinare. Strămoșii noștri o numeau normal.</p>
+            </div>
+
+            <h3>Conceptul de lene este construit cultural</h3>
+            <p>Multe societăți indigene <strong>nu au un concept echivalent cu „lenea."</strong> Pirahã din Amazon nu au un cuvânt pentru grija față de viitor. Conceptele aborigenilor australieni despre timp sunt ciclice, nu liniare — ideea de a „pierde" timp este incoherentă într-un cadru ciclic.</p>
+        </section>
+
+        <div class="section-divider">&#9830; &#9830; &#9830;</div>
+
+        <section class="section fade-in" id="data">
+            <span class="section-number">15</span>
+            <h2>Datele incomode</h2>
+
+            <div class="insight-card">
+                <div class="card-label">Procrastinarea poate îmbunătăți creativitatea</div>
+                <p>Shin și Grant (2021) au constatat că <strong>procrastinarea moderată a îmbunătățit performanța creativă</strong> la sarcini care necesitau gândire nouă. Perioada de incubare — când „procrastinezi" dar mintea ta inconștientă procesează problema — produce soluții mai creative decât efortul focalizat imediat.</p>
+            </div>
+
+            <div class="insight-card">
+                <div class="card-label">Intervențiile de voință eșuează în mare parte</div>
+                <p>Meta-analizele intervențiilor de autocontrol arată <strong>efecte mici și adesea nereplicabile</strong>. Implicația: procrastinarea poate să nu fie deloc o problemă de voință, iar încercarea de a o rezolva cu antrenament al voinței vizează mecanismul greșit.</p>
+            </div>
+
+            <div class="insight-card">
+                <div class="card-label">Designul mediului depășește schimbarea caracterului</div>
+                <p>Intervențiile care modifică mediul de alegere (opțiuni implicite, dispozitive de angajament, structuri de termene limită) <strong>depășesc consecvent intervențiile care încearcă să schimbe persoana</strong>. Cele mai eficiente strategii anti-procrastinare nu necesită nicio schimbare în caracterul procrastinatorului — doar în mediul său.</p>
+            </div>
+
+            <div class="insight-card">
+                <div class="card-label">Procrastinarea structurată funcționează</div>
+                <p>„Procrastinarea structurată" a filosofului John Perry — a face lucruri productive dar de prioritate mai mică în timp ce eviți pe cel de prioritate maximă — se dovedește a fi <strong>surprinzător de eficientă ca strategie de viață</strong>. Mulți oameni foarte realizați funcționează astfel.</p>
+            </div>
+
+            <div class="insight-card">
+                <div class="card-label">Auto-compasiunea bate auto-critica</div>
+                <p>Sirois (2014) a constatat că <strong>auto-compasiunea reduce procrastinarea mai eficient decât auto-critica</strong>. Oamenii care se iartă pentru procrastinarea trecută procrastinează mai puțin în viitor. Oamenii care se auto-pedepsesc procrastinează mai mult. Abordarea bazată pe rușine și vinovăție nu este doar ineficientă — este activ contraproductivă.</p>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="pathology">
+            <span class="section-number">16</span>
+            <h2>Când degenerează</h2>
+
+            <h3>1. Procrastinarea cronică ca risc de sănătate</h3>
+            <p>Cercetarea lui Sirois și Pychyl leagă procrastinarea cronică de <strong>boli cardiovasculare, hipertensiune și funcție imunitară mai slabă</strong>. Mecanismul nu este procrastinarea în sine — este stresul cronic al trăirii într-o stare perpetuă de „ar trebui să fac altceva."</p>
+
+            <h3>2. Amplificarea digitală</h3>
+            <p>Smartphone-urile și social media reprezintă cei mai puternici amplificatori ai procrastinării inventați vreodată. Oferă <strong>întărire imediată cu raport variabil</strong> (cel mai adictiv program cunoscut de psihologie). Versiunea ancestrală a procrastinării era odihna, care cel puțin restaura energia. Versiunea modernă este doom-scrolling-ul, care epuizează energia, atenția și starea de spirit fără niciun beneficiu restaurativ.</p>
+
+            <h3>3. Capcana identității</h3>
+            <p>Când procrastinarea devine cronică, oamenii încep să se <strong>identifice</strong> cu ea: „Sunt un procrastinator." Această încorporare identitară face comportamentul mai greu de schimbat pentru că nu mai este un comportament — este o trăsătură. Eticheta devine o profeție auto-îndeplinită.</p>
+
+            <div class="pullquote">
+                <p>Am construit o civilizație care cere productivitate constantă de la un organism care a evoluat pentru efort intermitent, apoi am dat vina pe organism când nu se conformează.</p>
+            </div>
+        </section>
+
+        <section class="section fade-in" id="ultimate">
+            <span class="section-number">17</span>
+            <h2>Sinteza finală</h2>
+
+            <div class="highlight-box">
+                <p>Procrastinarea nu este un defect de caracter. Este <strong>relația umană naturală cu timpul</strong>, ciocnindu-se de cerințele unei civilizații care necesită una fundamental diferită.</p>
+            </div>
+
+            <p>Timp de 300.000 de ani de existență umană modern anatomică, strămoșii noștri lucrau când munca era necesară și se odihneau când nu era. Nu amânau sarcini pentru că nu exista un program abstract față de care să se măsoare amânarea. Acționau când mediul le cerea acțiune și conservau energie când nu le cerea. Aceasta era adaptivă, eficientă și sănătoasă.</p>
+
+            <p>Apoi, în ultimii 10.000 de ani — și mai ales ultimii 300 — am inventat agricultura, ceasurile, fabricile, birourile, programele, termenele limită, evaluările trimestriale și cadrul moral care tratează devierea de la productivitatea constantă ca eșec personal.</p>
+
+            <div class="pullquote">
+                <p>Nu procrastinăm pentru că suntem defecți. Procrastinăm pentru că rulăm software proiectat pentru o lume care nu mai există, pe hardware care nu a fost niciodată menit să îl ruleze.</p>
+            </div>
+
+            <ul class="mechanism-list">
+                <li><strong>Redesignul mediului</strong>: structurează mediul astfel încât comportamentul dorit să fie implicit</li>
+                <li><strong>Reglarea emoțională</strong>: abordează sentimentele care conduc evitarea, nu încerca să le anulezi cu voința</li>
+                <li><strong>Munca identitară</strong>: crește continuitatea temporală a sinelui — fă sinele viitor să se simtă mai puțin ca un necunoscut</li>
+                <li><strong>Recalibrarea culturală</strong>: chestionează cadrul moral care echivalează productivitatea constantă cu virtutea și odihna cu păcatul</li>
+                <li><strong>Reforma instituțională</strong>: proiectează structuri de muncă care acomodează ritmurile umane naturale</li>
+                <li><strong>Auto-compasiunea</strong>: cercetarea este lipsită de ambiguitate — vinovăția și rușinea cresc procrastinarea; auto-iertarea o reduce</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>În fiecare dimineață, miliarde de oameni se trezesc și duc o bătălie împotriva propriei neurologii, moștenirii lor evolutive și arhitecturii de bază a psihologiei lor — pentru a se conforma cerințelor instituționale care sunt, pe o scară temporală evolutivă, vechi de câteva secunde. Majoritatea pierd acea bătălie în orice zi dată. Și apoi se simt rău.</p>
+                <p>Faptul că 95% dintre oameni procrastinează nu este dovadă că 95% dintre oameni sunt defecți. <strong>Este dovadă că mediul este nepotrivit pentru specie.</strong> Iar nepotrivirile se repară schimbând mediul, nu blamând organismul.</p>
+                <p>Vei procrastina din nou mâine. Acum știi de ce — și știi că nu este vina ta.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p class="footer-title">De ce procrastinăm</p>
+        <p>O sinteză multi-disciplinară din psihologie evoluționistă, neuroștiință, psihologie, economie comportamentală, antropologie, sociologie, filosofie și teoria deciziei.</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">&#8593;</button>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (scrollTop / docHeight) * 100 + '%';
+        }
+        window.addEventListener('scroll', updateProgress, { passive: true });
+
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('visible', window.scrollY > 600);
+        }, { passive: true });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
