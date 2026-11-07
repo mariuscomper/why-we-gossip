@@ -1,8 +1,8 @@
 # Why We Gossip
 
-**The hidden logic of humanity's most universal — and most condemned — behavior.**
+**What studies of social conversation and gossip can — and cannot — tell us.**
 
-You spend 65% of your conversation time doing something you condemn in others. Every human society ever studied practices it. Every culture has norms against it. This paradox demands an explanation — and the answer spans nine academic disciplines.
+The word “gossip” covers different kinds of conversation. A 1997 study classified about two-thirds of sampled conversation time as social topics; a 2019 study used the narrower definition of talk about someone absent and reported about 14%. Their percentages measure different things.
 
 ## Read the Analysis
 
@@ -15,15 +15,15 @@ This is a deep, multi-disciplinary analysis of why humans gossip — drawing on 
 
 | Discipline | Key Insight |
 |---|---|
-| **Evolutionary Psychology** | Gossip is "vocal grooming" — language may have evolved primarily for it (Dunbar) |
-| **Anthropology** | For 95% of human history, gossip was the primary mechanism of governance |
+| **Evolutionary Psychology** | Dunbar proposed that language may have helped maintain social bonds; this remains an evolutionary hypothesis |
+| **Anthropology** | Case studies describe gossip as one way groups enforce norms |
 | **Psychology** | We condemn gossip while practicing it compulsively — and that contradiction is itself adaptive |
 | **Sociology** | Gossip is not the enemy of social order but its invisible infrastructure |
 | **Economics** | Every reputation system (credit scores, Yelp, eBay) is formalized gossip |
 | **Game Theory** | Cooperation at scale is mathematically impossible without gossip (Nowak & Sigmund) |
 | **Neuroscience** | The brain's "resting state" is social cognition — we are always processing gossip |
 | **Political Science** | Gossip is simultaneously a weapon of the weak and a tool of elite control |
-| **Linguistics** | Narrative storytelling may have originated as an elaboration of gossip |
+| **Linguistics** | The essay considers whether social conversation and storytelling share mechanisms |
 
 ## Structure
 
@@ -34,12 +34,12 @@ The analysis follows a two-layer approach:
 
 ## Key Claims
 
-- Gossip is the fundamental operating system of human social life
-- Language didn't evolve and then get used for gossip — gossip drove the evolution of language
-- Every attempt to build a society without gossip has failed
-- Human morality is maintained primarily by gossip, not abstract principles
-- Condemning gossip is itself a gossip strategy
-- The challenge isn't eliminating gossip — it's understanding it well enough to preserve its functions while mitigating its pathologies
+- Social topics and talk about absent people are not the same measure
+- Dunbar’s account of language and gossip is a hypothesis, not an established origin story
+- The studies cited here describe particular samples and methods, not every society
+- Talk about reputation can affect cooperation, but these studies do not show that morality depends primarily on gossip
+- The essay considers how norms around gossip can affect reputation
+- The essay asks when talk about others can help and when it can cause harm
 
 ## Selected References
 
@@ -54,6 +54,13 @@ The analysis follows a two-layer approach:
 - Scott, J. (1985). *Weapons of the Weak: Everyday Forms of Peasant Resistance*
 - Baumeister, R.F. et al. (2001). "Bad Is Stronger Than Good." *Review of General Psychology*
 - Kniffin, K.M. & Wilson, D.S. (2010). "Evolutionary Perspectives on Workplace Gossip." *Group & Organization Management*
+
+
+
+- Dunbar, R. I. M., Marriott, A. & Duncan, N. D. (1997). [Human conversational behavior](https://link.springer.com/article/10.1007/BF02691926). *Human Nature*, 8, 231–246.
+- Dunbar, R. I. M. (2004). [Gossip in evolutionary perspective](https://journals.sagepub.com/doi/10.1037/1089-2680.8.2.100). *Review of General Psychology*, 8(2), 100–110.
+- Szala, A. et al. (2025). [How much conversation content is actually social?](https://www.cambridge.org/core/journals/language-and-cognition/article/how-much-conversation-content-is-actually-social-human-conversational-behaviour-revisited/61BF5C91583F04053BE9471ED96FAE1D). *Language and Cognition*, 17, e11.
+- Robbins, M. L. & Karan, A. (2019). [Who gossips and how in everyday life?](https://journals.sagepub.com/doi/10.1177/1948550619837000). *Social Psychological and Personality Science*.
 
 ## Technical Details
 
